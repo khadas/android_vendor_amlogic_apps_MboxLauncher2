@@ -5,7 +5,7 @@
     android:padding="6dip"
     android:background="@drawable/normal_bg"
     android:id="@+id/numbers_zone"
-    android:orientation="vertical" >
+    android:orientation="vertical" >'
 <FrameLayout android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:background="@drawable/normal_bg">
@@ -24,15 +24,16 @@
              android:orientation="horizontal"
              android:background="@drawable/normal_bg">
     <com.amlogic.smartremote.ui.RemoteButton
-            android:background="@drawable/key_bg"
+        	android:background="@drawable/key_bg"
             android:gravity="center"
             android:id="@+id/func_menu"
             android:text="@string/func_menu"
             android:layout_margin="2dip"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_button_hight"
+            android:layout_height="@dimen/text_button_hight"
         />
+
    <com.amlogic.smartremote.ui.RemoteButton
             android:background="@drawable/key_bg"
             android:gravity="center"
@@ -41,17 +42,17 @@
             android:layout_margin="2dip"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_button_hight"
+            android:layout_height="@dimen/text_button_hight"
         />
     <com.amlogic.smartremote.ui.RemoteButton
             android:background="@drawable/key_bg"
-            android:gravity="center"
+			android:gravity="center"
             android:id="@+id/func_video"
             android:text="@string/func_video"
             android:layout_margin="2dip"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_button_hight"
+            android:layout_height="@dimen/text_button_hight"
         />
 </LinearLayout>
 <LinearLayout android:layout_width="match_parent"
@@ -86,7 +87,7 @@
        />
 <com.amlogic.smartremote.ui.RemoteButton
              android:layout_width="wrap_content" 
-            android:layout_height="@dimen/normal_button_hight"
+             android:layout_height="@dimen/normal_button_hight"
              android:layout_weight="0.25"
              android:layout_margin="2dip"
              android:background="@drawable/yellow_color_bg"

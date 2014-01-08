@@ -279,6 +279,8 @@ public class Controller implements Settings.SettingsChangedListener{
 	
 	public void onExit()
 	{
+		updateState(STATE_NORMAL);
+		mActivity.onRedefCompleted(); 
 		Settings.unregisterListener(this);
 		mModel.exit();
 	}

@@ -4,34 +4,31 @@
     android:layout_height="match_parent"
     android:padding="6dip"
     android:background="@drawable/normal_bg"
-    android:orientation="vertical" >   
- <com.amlogic.smartremote.ui.RemoteButton
+    android:orientation="vertical" >
+ <com.amlogic.smartremote.ui.RemoteImageButton
             android:background="@drawable/power_bg"
-            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/ic_cntl_power"
             android:id="@+id/cntl_power"
-            android:text="@string/cntl_power"
             android:layout_margin="2dip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-        />
-  <com.amlogic.smartremote.ui.RemoteButton
-            android:background="@drawable/key_bg"
-            android:gravity="center"
+            android:layout_height="@dimen/cntl_button_hight"/>
+ <com.amlogic.smartremote.ui.RemoteImageButton
+            android:background="@drawable/key_bg_9"
+            android:scaleType="center"
+            android:src="@drawable/cntl_search"
             android:id="@+id/cntl_search"
-            android:text="@string/cntl_search"
             android:layout_margin="2dip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-        />
-   <com.amlogic.smartremote.ui.RemoteButton
-            android:background="@drawable/key_bg"
-            android:gravity="center"
+            android:layout_height="@dimen/cntl_button_hight"/>
+ <com.amlogic.smartremote.ui.RemoteImageButton
+            android:background="@drawable/key_bg_9"
+            android:scaleType="center"
+            android:src="@drawable/cntl_voice_cntl"
             android:id="@+id/cntl_voice"
-            android:text="@string/cntl_voice"
             android:layout_margin="2dip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-        />
+            android:layout_height="@dimen/cntl_button_hight"/>
    
 <FrameLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -174,7 +174,7 @@
             android:layout_margin="2dip"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/func_num_button_hight"
         />
     <Button android:background="@drawable/key_bg"
             android:gravity="center"

@@ -12,6 +12,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -62,15 +63,15 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 		
 		super.onCreate(savedInstanceState);
 		
-        this.setContentView(R.layout.activity_remote);
+		this.setContentView(R.layout.activity_remote);
+
+		/*
+		FrameLayout infoZone = (FrameLayout)findViewById(R.id.info_zone);
+		infoZone.setMinimumHeight((int)(SmartRemote.SCREEN_HEIGHT*0.18));
+		*/
+    mInfoShow = (TextView)findViewById(R.id.info_text);
         
-        FrameLayout infoZone = (FrameLayout)findViewById(R.id.info_zone);
-        infoZone.setMinimumHeight((int)(SmartRemote.SCREEN_HEIGHT*0.18));
-        mInfoShow = (TextView)findViewById(R.id.info_text);
-        
-        //setActionBar();
-		
-		Controller.get().registerStateChangedListener(this);
+    Controller.get().registerStateChangedListener(this);
 		Settings.registerListener(this);
         
 	}
@@ -206,13 +207,17 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 		{
 		case MSG_SHOW_TEXT__BACK_NORMAL :
 		{
-			mInfoShow.setText(mContext.getString(R.string.msg_normal_use));
+				if(mInfoShow != null) {
+						mInfoShow.setText(mContext.getString(R.string.msg_normal_use));
+				}
 		}
 		break;
 		case MSG_SHOW_TEXT_INFO :
 		{
 			String info = msg.getData().getString("INFO", mContext.getString(R.string.msg_normal_use));
-			mInfoShow.setText(info);
+			if(mInfoShow != null) {
+					mInfoShow.setText(info);
+			}
 		}
 		break;
 		case MSG_REDEF_COMPLETED :
@@ -319,12 +324,15 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 		mHandler.sendEmptyMessage(MSG_REDEF_COMPLETED);
 	}
 
+		private void clearState()
+		{
+				Controller.get().unregisterStateChangedListener(this);
+				Settings.unregisterListener(this);
+				Controller.get().onExit();		
+		}
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
-		Controller.get().unregisterStateChangedListener(this);
-		Settings.unregisterListener(this);
-		Controller.get().onExit();
 		super.onDestroy();
 	}
 
@@ -339,6 +347,7 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
+			clearState();
 		super.onStop();
 	}
 	
@@ -390,5 +399,12 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 	public void onModelsChanged(ArrayList<Model> list) {
 		// TODO Auto-generated method stub
 		setActionBar(list);
+	}
+		
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		// TODO Auto-generated method stub
+			Log.d("onConfigurationChanged");
+		super.onConfigurationChanged(newConfig);
 	}
 }
