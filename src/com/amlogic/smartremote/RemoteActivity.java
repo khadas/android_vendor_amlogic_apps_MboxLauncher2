@@ -1,7 +1,6 @@
 package com.amlogic.smartremote;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.amlogic.smartremote.Settings.Model;
 
@@ -18,13 +17,10 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -266,7 +262,10 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 		case R.id.menu_redef :
 		{
 			mRedfKey = item;
-			if(!Controller.get().checkEnvOk()) break;
+			if(!Controller.get().checkEnvOk()) 
+				break;
+			//{{{{{{
+			/*
 			if(!mRedefIconLight) {
 				item.setIcon(R.drawable.redefing);
 				mRedefIconLight = true;
@@ -276,6 +275,8 @@ public class RemoteActivity extends Activity implements Controller.OnStateChange
 			}
 			
 			Controller.get().onRedefKeyClicked(mRedefIconLight);
+			*/
+			//}}}}}}
 		}
 		break;
 		case R.id.menu_add_model :

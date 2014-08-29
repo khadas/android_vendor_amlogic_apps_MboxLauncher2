@@ -19,7 +19,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class RemoteDialog extends Activity{
@@ -54,6 +53,7 @@ public class RemoteDialog extends Activity{
 	    mCurrType = it.getIntExtra(SmartRemote.DIALOG_TYPE, -1);
 		switch(mCurrType)
 		{
+		/*
 		case SmartRemote.DIALOG_ADD_MODEL :
 		{
 			this.setContentView(R.layout.dialog_add_model);
@@ -87,6 +87,7 @@ public class RemoteDialog extends Activity{
 			add.setOnClickListener(listener);
 		}
 		break;
+		*/
 		case SmartRemote.DIALOG_DERIVE_DATA:
 		{
 			this.setTitle(R.string.menu_derive);
@@ -106,7 +107,9 @@ public class RemoteDialog extends Activity{
 			});
 		}
 		break;
+		/*
 		case SmartRemote.DIALOG_EDIT_OPTS:
+		
 		{
 			this.setTitle(R.string.menu_edit_ops);
 			this.setContentView(R.layout.dialog_edit_opts);
@@ -154,6 +157,7 @@ public class RemoteDialog extends Activity{
 			ok.setOnClickListener(listener);
 		}
 		break;
+		*/
 		default:
 		{
 			this.finish();

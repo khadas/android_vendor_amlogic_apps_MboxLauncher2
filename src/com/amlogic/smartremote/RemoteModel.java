@@ -1,25 +1,20 @@
 package com.amlogic.smartremote;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-import java.io.Writer;
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.hardware.ConsumerIrManager;
+import android.hardware.ConsumerIrManager.CarrierFrequencyRange;
 
 public class RemoteModel implements Settings.SettingsChangedListener , 
                                     Controller.OnStateChangedListener {
@@ -28,22 +23,24 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
 	Context mContext = null;
 	File mTempFile = null;
 	SharedPreferences mPref = null;
+	ConsumerIrManager mConsumerIrManager = null;
 	
 	String SEPARATOR = ",";
 	int DATA_MAX_LENGTH = 4800;
-	
-   	private native int checkAndInit();
-    private native int sendAction(int data[]);
-    private native int[] receiveAction();
-    private native int checkAction(String path);
-    private native int redefAction();
-    private native void cancelRecv();
-    private native void appExit(); 
-	
+	//{{{{{{{{{
+   	//private native int checkAndInit();
+    //private native int sendAction(int data[]);
+    //private native int[] receiveAction();
+    //private native int checkAction(String path);
+    //private native int redefAction();
+    //private native void cancelRecv();
+    //private native void appExit();  //do nothing
+	//}}}}}}}}}
+  
 	public RemoteModel(Context c)
 	{
 		this.mContext = c;
-		
+		mConsumerIrManager = (ConsumerIrManager)c.getSystemService(Context.CONSUMER_IR_SERVICE);
 		mBasePath = mContext.getFilesDir().getAbsolutePath();
 	}
 	
@@ -110,7 +107,7 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
     	Log.v("generateDestinationPath:"+path);
     	return path;
     }
-    
+    /*
     private boolean saveKeyData(String path, int data[])
     {
     	boolean ret = true;
@@ -154,6 +151,23 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
 		}
     	return ret;
     }
+    */
+    //{{{{{{{{{
+    private int sendAction(int data[])
+    {
+    	if(mConsumerIrManager == null)
+    		return -1;
+    	CarrierFrequencyRange[] freq = mConsumerIrManager.getCarrierFrequencies();
+    	if(freq == null || freq.length == 0)
+    		return -1;
+    	//for(CarrierFrequencyRange f:freq)
+    	//{
+    		//Log.v("f.getMinFrequency():"+f.getMinFrequency());
+    		mConsumerIrManager.transmit(38000, data);
+    	//}
+    	return 0;
+    }
+	//}}}}}}}}
     
     private int[] getKeyData(InputStream input)
     {
@@ -170,11 +184,13 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
     	try {
     		int count = in.read(temp);
     		String str = new String(temp,0,count);
-    		Log.v("read str:"+str);
+    		
     		String strs[] = str.trim().split(SEPARATOR);
     		data = new int[strs.length];
+    		//Log.v("data length: "+strs.length);
     		for(int i=0;i<strs.length;i++) {
-    			data[i] = Integer.parseInt(strs[i]);
+    			data[i] = Integer.parseInt(strs[i])*10;
+    			//Log.v("read data["+i+"]="+data[i]);
     		}			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -192,17 +208,20 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
     
     public int checkEnvAndInit()
     {
-        return checkAndInit();
+    	if(mConsumerIrManager == null)
+    		return -1;
+    	return 0;
+        //return checkAndInit();
     }
     public synchronized void sendRepeat(int action)
     {
     	int policy_id = 0;
-    	InputStream input = generateInput(action);
-    	int data[];
-    	if(input != null) {
-    		data = getKeyData(input);
-    		policy_id = CalibratePolicy.detect(data);
-    		
+    	//InputStream input = generateInput(action);
+    	int data[] = {9000,2250,560,560};
+    	if(true) {
+    		//data = getKeyData(input);
+    		//policy_id = CalibratePolicy.detect(data);
+    		policy_id = CalibratePolicy.POLICY_ID_NEC;
     		switch(policy_id) {
     		case CalibratePolicy.POLICY_ID_NONE :
     		{
@@ -244,6 +263,7 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
 		} catch (IOException e) {}
 		Log.v("send end");
     }
+    /*
     public synchronized void redef(int action)
     {
         int ret = 0 , notify = 2; 
@@ -302,7 +322,7 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
         
         Log.v("redef end");
     }
-        
+    */
     private InputStream getSource(int model ,  int action)
     {
     	InputStream input;
@@ -386,15 +406,15 @@ public class RemoteModel implements Settings.SettingsChangedListener ,
     {
     	Controller.get().unregisterStateChangedListener(this);
     	Settings.unregisterListener(this);
-        appExit();
+        //appExit();
     }
 
 	@Override
 	public void onStateChanged(int state) {
 		// TODO Auto-generated method stub
-		if(state == Controller.STATE_NORMAL) {
-			cancelRecv();
-		}
+		//if(state == Controller.STATE_NORMAL) {
+			//cancelRecv();
+		//}
 	}
 	@Override
 	public void onCurrModelChanged(Settings.Model m) {

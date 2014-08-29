@@ -6,11 +6,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ImageButton;
 import com.amlogic.smartremote.*;
 import com.amlogic.smartremote.Settings.Model;
-import com.amlogic.smartremote.ui.RemoteButton.DownExec;
 
 public class RemoteImageButton extends ImageButton implements Settings.SettingsChangedListener,
                                                         Controller.OnStateChangedListener{
@@ -104,7 +102,6 @@ public class RemoteImageButton extends ImageButton implements Settings.SettingsC
 	
 	class DownExec extends Thread 
 	{
-		int count = 0;
 		DownExec()
 		{
 			sendAction();
@@ -112,21 +109,20 @@ public class RemoteImageButton extends ImageButton implements Settings.SettingsC
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
+			
 			while(true) {
-				if(!mStateDowm) {
-					break;
-				}
-				
-				if(count++ > 56) {
-					sendRepeat();
-					count = 0;
-				}
 				try {
-					Thread.sleep(10);
+					Thread.sleep(Controller.SEND_REPEAT_KEY_DISTANCE);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				if(!mStateDowm) {
+					break;
+				}
+				
+				sendRepeat();
+				
 			}
 			super.run();
 		}
@@ -139,8 +135,10 @@ public class RemoteImageButton extends ImageButton implements Settings.SettingsC
 		{
 		case MotionEvent.ACTION_DOWN :
 		{
-			new DownExec().start();
-			mStateDowm = true;
+			if(!mStateDowm){
+				new DownExec().start();
+				mStateDowm = true;
+			}
 		}
 		break;
 		case MotionEvent.ACTION_UP :

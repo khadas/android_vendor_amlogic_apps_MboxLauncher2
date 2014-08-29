@@ -20,6 +20,8 @@ public class Controller implements Settings.SettingsChangedListener{
 	private RemoteModel mModel = null;
 	private RemoteActivity mActivity = null;
 	
+	public static final int SEND_REPEAT_KEY_DISTANCE = 97;
+	
 	public static final int MSG_UI_READY = 0;
 	public static final int MSG_CHECK_AND_INIT = 1;
 	public static final int MSG_SEND_ACTION = 2;
@@ -126,7 +128,7 @@ public class Controller implements Settings.SettingsChangedListener{
 			if(mState == STATE_GO_TO_LEARN) {
 				updateState(STATE_LEARNING);
 				mActivity.showTextInfo(getString(R.string.msg_learning),false);
-				mModel.redef(msg.arg1);
+				//mModel.redef(msg.arg1);
 			} else if(mState == STATE_NORMAL) {
 				mModel.send(msg.arg1);
 			}

@@ -21,10 +21,11 @@ public class SmartRemote extends Application{
 	
 	public static int CNTL_BUTTON_WIDTH = -1;
 	public static int CNTL_BUTTON_HEIGHT = -1;
-	
+	/*
 	static {
 		System.loadLibrary("smart_remote");
 	}
+	*/
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
