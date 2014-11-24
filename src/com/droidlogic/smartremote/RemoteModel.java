@@ -1,4 +1,4 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import java.io.File;
 import java.io.FileInputStream;

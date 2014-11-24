@@ -8,7 +8,7 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:layout_weight="0.33">
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/cntl_up"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -17,7 +17,7 @@
                  android:id="@+id/cntl_voice_add"
                  android:layout_weight="0.5"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/cntl_up"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -50,7 +50,7 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:layout_weight="0.33">
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/cntl_down"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -59,7 +59,7 @@
                  android:id="@+id/cntl_voice_dec"
                  android:layout_weight="0.5"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                 android:src="@drawable/cntl_down"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"

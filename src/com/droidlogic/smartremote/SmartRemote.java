@@ -1,10 +1,10 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import android.app.Application;
 
 public class SmartRemote extends Application{
 	
-	public static final String ACTION_SHOW_DIALOG = "com.amlogic.smartremote.SHOW_DIALOG";
+	public static final String ACTION_SHOW_DIALOG = "com.droidlogic.smartremote.SHOW_DIALOG";
 	public static final String DIALOG_TYPE = "dialog_type";
 	public static final int DIALOG_ADD_MODEL = 1;
 	public static final int DIALOG_DERIVE_DATA = 2;

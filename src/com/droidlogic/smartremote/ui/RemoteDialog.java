@@ -1,9 +1,9 @@
-package com.amlogic.smartremote.ui;
+package com.droidlogic.smartremote.ui;
 
-import com.amlogic.smartremote.Controller;
-import com.amlogic.smartremote.R;
-import com.amlogic.smartremote.Settings;
-import com.amlogic.smartremote.SmartRemote;
+import com.droidlogic.smartremote.R;
+import com.droidlogic.smartremote.Controller;
+import com.droidlogic.smartremote.Settings;
+import com.droidlogic.smartremote.SmartRemote;
 
 import android.app.Activity;
 import android.content.Context;

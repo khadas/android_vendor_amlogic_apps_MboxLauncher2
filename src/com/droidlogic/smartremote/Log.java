@@ -1,4 +1,4 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 	public class Log {
 		private static final boolean sIsDebug = true;

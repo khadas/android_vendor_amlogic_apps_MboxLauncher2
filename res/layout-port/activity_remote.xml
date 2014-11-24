@@ -33,7 +33,7 @@
 <fragment android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:id="@+id/control"
-             android:name="com.amlogic.smartremote.ui.ControlFragment"
+             android:name="com.droidlogic.smartremote.ui.ControlFragment"
  />
 </FrameLayout>
 </LinearLayout>
@@ -46,7 +46,7 @@
 <fragment android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:id="@+id/function"
-             android:name="com.amlogic.smartremote.ui.FunctionFragment"
+             android:name="com.droidlogic.smartremote.ui.FunctionFragment"
  />
 </FrameLayout>
 
@@ -58,7 +58,7 @@
 <fragment android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:id="@+id/navigation"
-             android:name="com.amlogic.smartremote.ui.NavigationFragment"
+             android:name="com.droidlogic.smartremote.ui.NavigationFragment"
  />
 </FrameLayout>
 </LinearLayout>

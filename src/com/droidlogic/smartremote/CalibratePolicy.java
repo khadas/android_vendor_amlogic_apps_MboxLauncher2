@@ -1,6 +1,8 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import java.util.HashMap;
+
+import com.droidlogic.smartremote.R;
 
 public class CalibratePolicy {
 	public static final int TOLERANCE = 15;

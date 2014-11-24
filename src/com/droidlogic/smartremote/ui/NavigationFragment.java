@@ -1,6 +1,6 @@
-package com.amlogic.smartremote.ui;
+package com.droidlogic.smartremote.ui;
 
-import com.amlogic.smartremote.R;
+import com.droidlogic.smartremote.R;
 
 import android.app.Activity;
 import android.app.Fragment;

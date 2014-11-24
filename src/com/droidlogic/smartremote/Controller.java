@@ -1,9 +1,10 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import java.io.File;
 import java.util.ArrayList;
 
-import com.amlogic.smartremote.Settings.Model;
+import com.droidlogic.smartremote.R;
+import com.droidlogic.smartremote.Settings.Model;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -266,9 +267,9 @@ public class Controller implements Settings.SettingsChangedListener{
 	public boolean deriveData()
 	{
 		boolean ret = true;
-    	//String basePath = "/storage/external_storage/sdcard1/SmartRemoteData";
-        String basePath = android.os.Environment.getExternalStorage2Directory()
-				                 .getAbsolutePath()+"/SmartRemoteData";
+    	String basePath = "/storage/external_storage/sdcard1/SmartRemoteData";
+        //String basePath = android.os.Environment.getExternalStorage2Directory()
+				                 //.getAbsolutePath()+"/SmartRemoteData";
 
     	File file = new File(basePath);
     	if(!file.exists()) {

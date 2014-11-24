@@ -1,8 +1,9 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import java.util.ArrayList;
 
-import com.amlogic.smartremote.Settings.Model;
+import com.droidlogic.smartremote.R;
+import com.droidlogic.smartremote.Settings.Model;
 
 import android.os.Bundle;
 import android.os.Handler;

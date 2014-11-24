@@ -1,4 +1,4 @@
-package com.amlogic.smartremote;
+package com.droidlogic.smartremote;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +38,7 @@ public class Settings {
 	private SharedPreferences mPref = null;
 	
 	private ArrayList<Model> mModelsList = null;
-	private boolean mInitOk = false;
+	//private boolean mInitOk = false;
 	
 	private int mCurrMaxId = 0;
 	
@@ -87,7 +87,7 @@ public class Settings {
 		} else if(!getModels(input)) {
 			Log.e("Settings init failed , get models failed");
 		} else {
-			mInitOk = true;
+			//mInitOk = true;
 			Log.d("Settings init Success");		
 		}
 		

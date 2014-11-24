@@ -1,6 +1,6 @@
-package com.amlogic.smartremote.ui;
+package com.droidlogic.smartremote.ui;
 
-import com.amlogic.smartremote.R;
+import com.droidlogic.smartremote.R;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-public class FunctionFragment extends Fragment{
+public class ControlFragment extends Fragment{
 
 	LinearLayout mLayout = null;
 	Context mContext = null;
@@ -47,8 +47,9 @@ public class FunctionFragment extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		mLayout = (LinearLayout)inflater.inflate(R.layout.functions, container, false);
-		//mLayout.setMinimumWidth((int)(SmartRemote.SCREEN_WIDTH*0.32));
+		mLayout = (LinearLayout)inflater.inflate(R.layout.controls, container, false);
+		//mLayout.setMinimumWidth((int)(SmartRemote.SCREEN_WIDTH*0.34));
+
 		return mLayout;
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -74,6 +75,12 @@ public class FunctionFragment extends Fragment{
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
+		/*
+		Button mute = (Button)mLayout.findViewById(R.id.cntl_mute);
+		Button show_ch = (Button)mLayout.findViewById(R.id.cntl_show_ch);
+		mute.setMinWidth(SmartRemote.NAVI_BUTTON_WIDTH);
+		show_ch.setMinWidth(SmartRemote.NAVI_BUTTON_WIDTH);
+		*/
 		super.onResume();
 	}
 

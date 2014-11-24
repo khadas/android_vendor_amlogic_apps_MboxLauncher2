@@ -17,7 +17,7 @@
                  android:layout_weight="0.33"
                  android:layout_marginBottom="@dimen/navi_dpad_margin"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/navi_up"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -41,7 +41,7 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:layout_weight="0.34">
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/navi_left"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -51,7 +51,7 @@
                  android:id="@+id/navagation_left"
                  android:layout_weight="0.33"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/navi_ok"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -62,7 +62,7 @@
                  android:layout_marginLeft="@dimen/navi_dpad_margin"
                  android:layout_marginRight="@dimen/navi_dpad_margin"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/navi_right"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"
@@ -86,7 +86,7 @@
                  android:layout_weight="0.33"
                  android:layout_marginTop="@dimen/navi_dpad_margin"
                 />
-    <com.amlogic.smartremote.ui.RemoteImageButton
+    <com.droidlogic.smartremote.ui.RemoteImageButton
                  android:src="@drawable/navi_down"
                  android:background="@drawable/normal_bg"
                  android:scaleType="center"

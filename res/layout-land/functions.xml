@@ -23,7 +23,7 @@
              android:layout_height="wrap_content"
              android:orientation="horizontal"
              android:background="@drawable/normal_bg">
-    <com.amlogic.smartremote.ui.RemoteButton
+    <com.droidlogic.smartremote.ui.RemoteButton
         	android:background="@drawable/key_bg"
             android:gravity="center"
             android:id="@+id/func_menu"
@@ -34,7 +34,7 @@
             android:layout_height="@dimen/text_button_hight"
         />
 
-   <com.amlogic.smartremote.ui.RemoteButton
+   <com.droidlogic.smartremote.ui.RemoteButton
             android:background="@drawable/key_bg"
             android:gravity="center"
             android:id="@+id/func_voice"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/text_button_hight"
         />
-    <com.amlogic.smartremote.ui.RemoteButton
+    <com.droidlogic.smartremote.ui.RemoteButton
             android:background="@drawable/key_bg"
 			android:gravity="center"
             android:id="@+id/func_video"
@@ -61,7 +61,7 @@
              android:orientation="horizontal"
              android:layout_margin="2dip"
              android:background="@drawable/normal_bg">
-<com.amlogic.smartremote.ui.RemoteButton
+<com.droidlogic.smartremote.ui.RemoteButton
              android:layout_width="wrap_content" 
             android:layout_height="@dimen/normal_button_hight"
              android:layout_weight="0.25"
@@ -69,7 +69,7 @@
              android:background="@drawable/red_color_bg"
              android:id="@+id/func_def_red"
        />
-<com.amlogic.smartremote.ui.RemoteButton
+<com.droidlogic.smartremote.ui.RemoteButton
              android:layout_width="wrap_content" 
             android:layout_height="@dimen/normal_button_hight"
              android:layout_weight="0.25"
@@ -77,7 +77,7 @@
              android:background="@drawable/green_color_bg"
              android:id="@+id/func_def_green"
        />
-<com.amlogic.smartremote.ui.RemoteButton
+<com.droidlogic.smartremote.ui.RemoteButton
              android:layout_width="wrap_content" 
             android:layout_height="@dimen/normal_button_hight"
              android:layout_weight="0.25"
@@ -85,7 +85,7 @@
              android:background="@drawable/blue_color_bg"
              android:id="@+id/func_def_blue"
        />
-<com.amlogic.smartremote.ui.RemoteButton
+<com.droidlogic.smartremote.ui.RemoteButton
              android:layout_width="wrap_content" 
              android:layout_height="@dimen/normal_button_hight"
              android:layout_weight="0.25"
