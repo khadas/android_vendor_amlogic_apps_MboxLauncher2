@@ -21,12 +21,11 @@
 			  <!-- android:screenOrientation="landscape" -->
 				<!--android:screenOrientation="portrait"-->
 				<!--android:configChanges="orientation|screenSize|screenLayout|keyboard|navigation"-->
-        <activity android:name="com.droidlogic.smartremote.RemoteActivity"
-			  >
+        <activity android:name="com.droidlogic.smartremote.RemoteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
