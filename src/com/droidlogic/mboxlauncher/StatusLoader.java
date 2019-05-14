@@ -26,6 +26,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.DateFormat;
 
+import android.media.AudioManager;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -47,6 +49,7 @@ public class StatusLoader {
     private ConnectivityManager mConnectivityManager;
     private WifiManager mWifiManager;
     private StorageManager mStorageManager;
+    private AudioManager mAudioManager;
     //private FileListManager mFileListManager;
 
     //private int devCnt = 0;
@@ -58,6 +61,7 @@ public class StatusLoader {
         mConnectivityManager = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         mWifiManager = (WifiManager)mContext.getSystemService(Context.WIFI_SERVICE);
         mStorageManager = (StorageManager)mContext.getSystemService(Context.STORAGE_SERVICE);
+	mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     }
 
     public  List<ArrayMap<String, Object>> getStatusData() {
@@ -104,7 +108,21 @@ public class StatusLoader {
             list.add(map);
         }
 
+	if (isAudioExist()) {
+		map = new ArrayMap<String, Object>();
+		map.put(ICON, R.drawable.img_status_audio);
+		list.add(map);
+	}
+
         return list;
+    }
+
+    private boolean isAudioExist() {
+	boolean isHeadsetOn = mAudioManager.isWiredHeadsetOn();
+	if(isHeadsetOn)
+		return true;
+	else
+		return false;
     }
 
     private boolean isSdcardExist() {

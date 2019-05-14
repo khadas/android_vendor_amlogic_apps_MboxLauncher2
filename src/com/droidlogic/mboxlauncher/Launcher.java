@@ -250,6 +250,10 @@ public class Launcher extends Activity{
         registerReceiver(mediaReceiver, filter);
 
         filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_HEADSET_PLUG);
+        registerReceiver(audioReceiver, filter);
+
+        filter = new IntentFilter();
         filter.addAction(net_change_action);
         filter.addAction(wifi_signal_action);
         filter.addAction(Intent.ACTION_TIME_TICK);
@@ -716,6 +720,21 @@ public class Launcher extends Activity{
                 updateStatus();
             }
         }
+    };
+
+    private BroadcastReceiver audioReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            //Log.d(TAG, "audioReceiver action = " + action);
+            if (action == null)
+                return;
+	    if (Intent.ACTION_HEADSET_PLUG.equals(action)){
+		displayStatus();
+		updateStatus();
+	    }
+	}
     };
 
     private BroadcastReceiver netReceiver = new BroadcastReceiver() {
